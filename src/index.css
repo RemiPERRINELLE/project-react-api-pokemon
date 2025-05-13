@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-bug: #9F9F28;
+  --color-dark: #4F4747;
+  --color-dragon: #576FBC;
+  --color-electric: #DFBC283;
+  --color-fairy: #E18CE1;
+  --color-fighting: #E490213;
+  --color-fire: #E4613E;
+  --color-flying: #74AAD0;
+  --color-ghost: #6F4570;
+  --color-grass: #439837;
+  --color-ground: #A4733C;
+  --color-ice: #47C8C8;
+  --color-normal: #828282;
+  --color-poison: #9354CB;
+  --color-psychic: #E96C8C;
+  --color-rock: #A9A481;
+  --color-steel: #74B0CB;
+  --color-water: #3099E1;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--color-text);
+  background-color: var(--color-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-customize: '#F59E0B';
+
+  /* Dark mode colors */
+  --color-primary: #2563EB;
+  --color-secondary: #7C3AED;
+  --color-accent: #F59E0B;
+  --color-background: #1e1d1d;
+  --color-popup-background : #1F2937;
+  --color-text: #F9FAFB;
+  --color-popup-button : #6B7280;
+}
+
+.light {
+  /* Light mode colors */
+  --color-primary: #1D4ED8;
+  --color-secondary: #9333EA;
+  --color-accent: #F59E0B;
+  --color-background: #F9FAFB;
+  --color-popup-background : #d8d8d8;
+  --color-text: #1e1d1d;
+  --color-popup-button : #d8d8d8;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

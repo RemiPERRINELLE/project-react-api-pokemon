@@ -1,0 +1,252 @@
+#root {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* .pokemonCard{
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  border: 0.1px solid #fff;
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem var(--color-pokemonCard),
+  0 0 0.4rem var(--color-pokemonCard),
+  0 0 1.4rem var(--color-pokemonCard),
+  inset 0 0 0.7rem var(--color-pokemonCard); 
+  -webkit-box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem var(--color-pokemonCard),
+  0 0 0.4rem var(--color-pokemonCard),
+  0 0 1.4rem var(--color-pokemonCard),
+  inset 0 0 0.7rem var(--color-pokemonCard);
+  -moz-box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem var(--color-pokemonCard),
+  0 0 0.4rem var(--color-pokemonCard),
+  0 0 1.4rem var(--color-pokemonCard),
+  inset 0 0 0.7rem var(--color-pokemonCard); 
+}
+
+
+.pokemonCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-pokemonCard),
+    transparent
+  );
+  background-size: 400%;
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: snake-border 3s linear infinite;
+}
+
+.pokemonCard:hover::before {
+  opacity: 1;
+}
+
+@keyframes snake-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+} */
+
+.pokemonCard {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem var(--color-pokemonCard),
+  0 0 0.4rem var(--color-pokemonCard),
+  0 0 1.4rem var(--color-pokemonCard),
+  inset 0 0 0.7rem var(--color-pokemonCard); 
+  -webkit-box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem var(--color-pokemonCard),
+  0 0 0.4rem var(--color-pokemonCard),
+  0 0 1.4rem var(--color-pokemonCard),
+  inset 0 0 0.7rem var(--color-pokemonCard);
+  -moz-box-shadow: 0 0 .1rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem var(--color-pokemonCard),
+  0 0 0.4rem var(--color-pokemonCard),
+  0 0 1.4rem var(--color-pokemonCard),
+  inset 0 0 0.7rem var(--color-pokemonCard); 
+  transition: all 0.5s;
+}
+
+.pokemonCard::before,
+.pokemonCard::after,
+.pokemonCard span::before,
+.pokemonCard span::after {
+  content: '';
+  position: absolute;
+  background: var(--color-pokemonCard);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.bg-light-pokemonCard::before,
+.bg-light-pokemonCard::after,
+.bg-light-pokemonCard span::before,
+.bg-light-pokemonCard span::after {
+  content: '';
+  position: absolute;
+  background: #1e1d1d;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pokemonCard::before {
+  height: 2px;
+  width: 0;
+  top: 0;
+  left: 0;
+}
+
+.pokemonCard span::after {
+  width: 2px;
+  height: 0;
+  top: 0;
+  right: 0;
+}
+
+.pokemonCard::after {
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.pokemonCard span::before {
+  width: 2px;
+  height: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.pokemonCard:hover {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 1rem var(--color-pokemonCard);
+  -webkit-box-shadow: 0 0 1rem var(--color-pokemonCard);
+  -moz-box-shadow: 0 0 1rem var(--color-pokemonCard);
+}
+
+.pokemonCard:hover::before {
+  animation: animateTop 0.33s linear forwards, glow 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.pokemonCard:hover span::after {
+  animation: animateRight 0.33s linear 0.33s forwards, glow 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.pokemonCard:hover::after {
+  animation: animateBottom 0.33s linear 0.66s forwards, glow 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.pokemonCard:hover span::before {
+  animation: animateLeft 0.34s linear 1s forwards, glow 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.bg-light-pokemonCard:hover::before {
+  animation: animateTop 0.33s linear forwards, glowLight 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.bg-light-pokemonCard:hover span::after {
+  animation: animateRight 0.33s linear 0.33s forwards, glowLight 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.bg-light-pokemonCard:hover::after {
+  animation: animateBottom 0.33s linear 0.66s forwards, glowLight 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.bg-light-pokemonCard:hover span::before {
+  animation: animateLeft 0.34s linear 1s forwards, glowLight 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+@keyframes animateTop {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes animateRight {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+@keyframes animateBottom {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes animateLeft {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 3px var(--color-pokemonCard))
+            drop-shadow(0 0 6px var(--color-pokemonCard));
+  }
+  100% {
+    filter: drop-shadow(0 0 6px var(--color-pokemonCard))
+            drop-shadow(0 0 12px var(--color-pokemonCard));
+  }
+}
+
+@keyframes glowLight {
+  0% {
+    filter: drop-shadow(0 0 3px #1e1d1d)
+            drop-shadow(0 0 6px #1e1d1d);
+  }
+  100% {
+    filter: drop-shadow(0 0 6px #1e1d1d)
+            drop-shadow(0 0 12px #1e1d1d);
+  }
+}
+
+.bg-light-pokemonCard {
+  background-color: var(--color-pokemonCard);
+  border: 0.1px solid var(--color-pokemonCard);
+}
+
+#pokemon-popup {
+  background-color: var(--color-popup-background);
+}
+
+#pokemon-popup button:not(:hover) {
+  color: var(--color-popup-button);
+}
