@@ -75,7 +75,7 @@ function App() {
         <h1 className='sr-only'>Mini wiki Pokémon</h1>
         <img className='w-80' src={Pokemon_logo} alt="Mini wiki Pokémon" />
       </header>
-      <div className="flex justify-center flex-wrap gap-10 mt-10">
+      <div className="flex justify-center flex-wrap gap-6 sm:gap-10 mt-10">
         {
           pokemonsData.map((pokemon) => 
             typesDatas.map((type) => {
