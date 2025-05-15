@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const { data }  = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
+        const { data }  = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386&offset=0');
         const details = await Promise.all(
           data.results.map(poke => axios.get(poke.url).then(res => res.data))
         );

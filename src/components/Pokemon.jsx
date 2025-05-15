@@ -9,7 +9,7 @@ export default function Pokemon({pokemon, type, onClick}) {
 
 
     return(
-        <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: pokemon.id < 152 ? pokemon.id * 0.025 : 0 }} className={`appearance-none border-none w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 ${isLight ? 'bg-light-pokemonCard' : ''}`} style={{ '--color-pokemonCard': type.color }} onClick={onClick} >
+        <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: pokemon.id * 0.025 }} className={`appearance-none border-none w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 ${isLight ? 'bg-light-pokemonCard' : ''}`} style={{ '--color-pokemonCard': type.color }} onClick={onClick} >
             <span></span>
             <img src={pokemon.sprites.front_default} alt={name} />
             <h2>{name}</h2>
