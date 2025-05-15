@@ -21,7 +21,7 @@ export default function PokemonPopup({pokemonSelected, onClose}) {
         >
             <motion.div
                 id="pokemon-popup"
-                className="rounded-2xl shadow-lg p-6 w-[90%] max-w-md text-center relative"
+                className="rounded-2xl shadow-lg p-6 sm:p-16 w-[90%] max-w-md text-center relative"
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.9 }}
@@ -34,11 +34,11 @@ export default function PokemonPopup({pokemonSelected, onClose}) {
                     ✕
                 </button>
 
-                <h2 className="text-2xl font-bold capitalize mb-4">
+                <h2 className="text-2xl sm:text-3xl font-bold capitalize mb-4 sm:mb-7">
                 {name}
                 </h2>
 
-                <div className="flex justify-center gap-10">
+                <div className="flex justify-center gap-10 sm:gap-18 sm:text-xl">
                     <div className="flex flex-col">
                         <img
                             src={pokemon.sprites.front_default}
