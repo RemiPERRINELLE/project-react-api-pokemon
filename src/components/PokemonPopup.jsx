@@ -6,7 +6,7 @@ import { capitalize } from "../utils";
 export default function PokemonPopup({pokemonSelected, onClose}) {
     const pokemon = pokemonSelected.pokemon;
     const type = pokemonSelected.type;
-    const name = capitalize(pokemon.name);
+    const name = capitalize(pokemon.frenchName);
     const height = pokemon.height / 10;
     const weight = pokemon.weight / 10;
 
