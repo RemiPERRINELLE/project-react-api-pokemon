@@ -5,7 +5,7 @@ import { capitalize } from "../utils";
 
 export default function Pokemon({pokemon, type, onClick}) {
     const { isLight } = useTheme();
-    const name = capitalize(pokemon.name);
+    const name = capitalize(pokemon.frenchName);
 
 
     return(

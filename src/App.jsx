@@ -19,23 +19,53 @@ function App() {
   const { pokemonsData, setPokemonsData, errorPokemonsData, setErrorPokemonsData } = usePokemonsData();
   const { pokemonSelected, setPokemonSelected } = usePokemonSelected();
 
-  
   useEffect(() => {
     (async () => {
       try {
-        const { data }  = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386&offset=0');
+        const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386&offset=0');
+        
         const details = await Promise.all(
-          data.results.map(poke => axios.get(poke.url).then(res => res.data))
+          data.results.map(async (poke) => {
+            const pokemonData = await axios.get(poke.url).then(res => res.data);
+            const speciesData = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`)
+              .then(res => res.data);
+
+            // Cherche le nom en français
+            const frenchName = speciesData.names.find(name => name.language.name === 'fr')?.name || pokemonData.name;
+
+            return {
+              ...pokemonData,
+              frenchName,
+            };
+          })
         );
+
         setPokemonsData(details);
       } catch (error) {
         setErrorPokemonsData('Une erreur est intervenue lors de la récupération des données.');
-        console.log(error);
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
     })();
   }, []);
+  
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const { data }  = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386&offset=0');
+  //       const details = await Promise.all(
+  //         data.results.map(poke => axios.get(poke.url).then(res => res.data))
+  //       );
+  //       setPokemonsData(details);
+  //     } catch (error) {
+  //       setErrorPokemonsData('Une erreur est intervenue lors de la récupération des données.');
+  //       console.log(error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   })();
+  // }, []);
 
   // useEffect(() => {
   //   (async () => {
@@ -65,8 +95,6 @@ function App() {
   if(errorPokemonsData) return <p>{isError}</p>
 
 
-
-  
 
   return (
     <>
