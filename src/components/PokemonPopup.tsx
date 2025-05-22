@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { capitalize } from "../utils";
+import { PokemonSelected } from "@custom-types/pokemon";
 
 
+interface PokemonPopupProps {
+    pokemonSelected: PokemonSelected;
+    onClose: () => void;
+}
 
-export default function PokemonPopup({pokemonSelected, onClose}) {
+
+export default function PokemonPopup({pokemonSelected, onClose}: PokemonPopupProps) {
     const pokemon = pokemonSelected.pokemon;
     const type = pokemonSelected.type;
     const name = capitalize(pokemon.frenchName);
@@ -34,7 +40,7 @@ export default function PokemonPopup({pokemonSelected, onClose}) {
                     ✕
                 </button>
 
-                <h2 className="text-2xl sm:text-3xl font-bold capitalize mb-4 sm:mb-7">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-7">
                 {name}
                 </h2>
 

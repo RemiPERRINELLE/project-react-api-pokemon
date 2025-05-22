@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@custom-types/*": ["types/*"],
+      "@components/*" : ["components/*"],
+      "@contexts/*" : ["contexts/*"],
+    },
+    "types": ["vitest"],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true, // Permet d'avoir encore des .js si tu migres progressivement
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}

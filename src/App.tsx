@@ -11,7 +11,24 @@ import { usePokemonSelected } from './contexts/PokemonSelectedContext';
 import PokemonPopup from './components/PokemonPopup';
 import { AnimatePresence } from 'framer-motion';
 import Pokemon_logo from'./assets/logo/Pokemon_logo.png';
+import { PokemonData } from '@custom-types/pokemon';
 
+// TYPAGE
+
+interface PokemonItem {
+  name: string;
+  url: string;
+}
+
+interface PokemonSpeciesData {
+  names: {
+    name: string;
+    language: {
+      name: string;
+      url: string;
+    };
+  }[];
+}
 
 
 function App() {
@@ -25,13 +42,15 @@ function App() {
         const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386&offset=0');
         
         const details = await Promise.all(
-          data.results.map(async (poke) => {
-            const pokemonData = await axios.get(poke.url).then(res => res.data);
-            const speciesData = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`)
+          data.results.map(async (poke: PokemonItem) => {
+            const pokemonData = await axios.get<PokemonData>(poke.url).then(res => res.data);
+            const speciesData = await axios.get<PokemonSpeciesData>(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`)
               .then(res => res.data);
 
             // Cherche le nom en français
-            const frenchName = speciesData.names.find(name => name.language.name === 'fr')?.name || pokemonData.name;
+            const frenchName = speciesData.names.find(
+              name => name.language.name === 'fr'
+            )?.name || pokemonData.name;
 
             return {
               ...pokemonData,
@@ -39,7 +58,6 @@ function App() {
             };
           })
         );
-
         setPokemonsData(details);
       } catch (error) {
         setErrorPokemonsData('Une erreur est intervenue lors de la récupération des données.');
@@ -92,7 +110,7 @@ function App() {
   if(isLoading) return <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
                           <ClipLoader size={50} color="#3498db" loading={isLoading} />
                         </div>;
-  if(errorPokemonsData) return <p>{isError}</p>
+  if(errorPokemonsData) return <p>{errorPokemonsData}</p>
 
 
 
@@ -108,7 +126,7 @@ function App() {
           pokemonsData.map((pokemon) => 
             typesDatas.map((type) => {
               if((pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
-                return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} onClick={() => setPokemonSelected({pokemon: pokemon, type: type})} />
+                return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} onClick={() => setPokemonSelected({pokemon, type})} />
               } 
             })
           )

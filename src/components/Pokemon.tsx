@@ -1,15 +1,28 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext"
-import { capitalize } from "../utils";
+import { capitalize, cssVars } from "../utils";
+import { PokemonData, PokemonType } from "@custom-types/pokemon";
 
+interface PokemonProps {
+    pokemon: PokemonData;
+    type: PokemonType;
+    onClick: () => void;
+}
 
-export default function Pokemon({pokemon, type, onClick}) {
+export default function Pokemon({pokemon, type, onClick}: PokemonProps) {
     const { isLight } = useTheme();
     const name = capitalize(pokemon.frenchName);
 
 
     return(
-        <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: pokemon.id * 0.025 }} className={`appearance-none border-none w-45/100 sm:w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 text-sm sm:text-base ${isLight ? 'bg-light-pokemonCard' : ''}`} style={{ '--color-pokemonCard': type.color }} onClick={onClick} >
+        <motion.button 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: pokemon.id * 0.025 }}
+            className={`appearance-none border-none w-45/100 sm:w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 text-sm sm:text-base ${isLight ? 'bg-light-pokemonCard' : ''}`}
+            style={cssVars({ '--color-pokemonCard': type.color })} 
+            onClick={onClick}
+        >
             <span></span>
             <img src={pokemon.sprites.front_default} alt={name} />
             <h2>{name}</h2>

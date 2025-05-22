@@ -3,7 +3,7 @@ import './index.css'
 import App from './App.jsx'
 import AppProviders from './contexts/Providers.jsx'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <AppProviders>
     <App />
   </AppProviders>

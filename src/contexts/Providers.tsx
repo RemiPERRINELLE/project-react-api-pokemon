@@ -2,8 +2,15 @@ import PokemonsDataProvider from "./PokemonsDataContext";
 import LoadingProvider from "./LoadingContext";
 import ThemeProvider from "./ThemeContext";
 import PokemonSelectedProvider from "./PokemonSelectedContext";
+import { ReactNode } from "react";
 
-export default function AppProviders({children}) {
+
+// Type
+interface AppProvidersProps {
+    children: ReactNode;
+}
+
+export default function AppProviders({children}: AppProvidersProps) {
     return(
         <LoadingProvider>
             <PokemonsDataProvider>

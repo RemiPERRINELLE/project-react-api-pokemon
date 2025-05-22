@@ -1,7 +1,7 @@
 import { useTheme } from '../contexts/ThemeContext'
 
 export default function UseLightMode() {
-  const {setIsLight} = useTheme(false);
+  const {setIsLight} = useTheme();
 
   const bodyClass = document.body.classList;
 
