@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { capitalize } from "../utils";
-import { PokemonSelected } from "@custom-types/pokemon";
+import { PokemonSelected } from "@custom-types/pokemonTypes";
 
 
 interface PokemonPopupProps {

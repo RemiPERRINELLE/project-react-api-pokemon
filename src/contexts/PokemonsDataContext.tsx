@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
-import { PokemonData } from "@custom-types/pokemon"
+import { createContext, useContext, useState, Dispatch, SetStateAction } from "react";
+import { PokemonData } from "@custom-types/pokemonTypes"
+import { ProviderProps } from '@custom-types/contextTypes';
 
 
 // 1. Create the context
@@ -33,14 +34,7 @@ import { PokemonData } from "@custom-types/pokemon"
 
 // 2. Provide it
 
-
-    // Type
-    interface PokemonsDataProviderProps {
-        children: ReactNode;
-    }
-
-    // Provider
-    export default function PokemonsDataProvider({children}: PokemonsDataProviderProps) {
+    export default function PokemonsDataProvider({children}: ProviderProps) {
         // useState
         const [pokemonsData, setPokemonsData] = useState<PokemonData[]>([]);
         // const [pokemonsSpecies, setPokemonsSpecies] = useState<Species[]>([]);

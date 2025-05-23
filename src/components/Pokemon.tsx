@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext"
 import { capitalize, cssVars } from "../utils";
-import { PokemonData, PokemonType } from "@custom-types/pokemon";
+import { PokemonData, PokemonType } from "@custom-types/pokemonTypes";
 
 interface PokemonProps {
     pokemon: PokemonData;

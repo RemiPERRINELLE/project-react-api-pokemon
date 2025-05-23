@@ -1,12 +1,13 @@
-import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
-import { PokemonSelected } from "@custom-types/pokemon";
+import { createContext, useContext, useState, Dispatch, SetStateAction } from "react";
+import { PokemonSelected } from "@custom-types/pokemonTypes";
+import { ProviderProps } from '@custom-types/contextTypes';
 
 // 1. Create the context
 
     // Type
         interface PokemonSelectedContextType {
             pokemonSelected: PokemonSelected | null;
-            setPokemonSelected: (value: PokemonSelected | null) => void;
+            setPokemonSelected: Dispatch<SetStateAction<PokemonSelected | null>>;
         }
 
         const defaultValues: PokemonSelectedContextType = {
@@ -20,13 +21,7 @@ import { PokemonSelected } from "@custom-types/pokemon";
 
 // 2. Provide it
 
-    // Type
-    interface PokemonSelectedProviderProps {
-        children: ReactNode;
-    }
-
-    // Provider
-    export default function PokemonSelectedProvider({children}: PokemonSelectedProviderProps) {
+    export default function PokemonSelectedProvider({children}: ProviderProps) {
         // useState
         const [pokemonSelected, setPokemonSelected] = useState<PokemonSelected  | null>(null);
 

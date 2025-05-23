@@ -11,7 +11,7 @@ import { usePokemonSelected } from './contexts/PokemonSelectedContext';
 import PokemonPopup from './components/PokemonPopup';
 import { AnimatePresence } from 'framer-motion';
 import Pokemon_logo from'./assets/logo/Pokemon_logo.png';
-import { PokemonData } from '@custom-types/pokemon';
+import { PokemonData } from '@custom-types/pokemonTypes';
 
 // TYPAGE
 

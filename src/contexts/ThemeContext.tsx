@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect, ReactNode, Dispatch, SetStateAction } from "react";
+import { createContext, useContext, useState, useEffect, Dispatch, SetStateAction } from "react";
+import { ProviderProps } from '@custom-types/contextTypes';
 
 // 1. Create the context
 
@@ -19,13 +20,7 @@ import { createContext, useContext, useState, useEffect, ReactNode, Dispatch, Se
 
 // 2. Provide it
 
-    // Type
-    interface ThemeProviderProps {
-        children: ReactNode;
-    }
-
-    // Provider
-    export default function ThemeProvider({children}: ThemeProviderProps) {
+    export default function ThemeProvider({children}: ProviderProps) {
         // useState
         const [isLight, setIsLight] = useState(() => {
             // const savedTheme = localStorage.getItem('theme');

@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
+import { createContext, useContext, useState, Dispatch, SetStateAction } from "react";
+import { ProviderProps } from '@custom-types/contextTypes';
 
 // 1. Create the context
 
@@ -20,13 +21,7 @@ import { createContext, useContext, useState, ReactNode, Dispatch, SetStateActio
 
 // 2. Provide it
 
-     // Type
-    interface LoadingProviderProps {
-        children: ReactNode;
-    }
-
-    // Provider
-    export default function LoadingProvider({children}: LoadingProviderProps) {
+    export default function LoadingProvider({children}: ProviderProps) {
         // useState
         const [isLoading, setIsLoading] = useState(true);
 
