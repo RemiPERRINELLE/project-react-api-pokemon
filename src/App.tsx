@@ -2,16 +2,19 @@ import { useEffect } from 'react'
 import './App.css'
 import axios from 'axios';
 import { typesDatas } from './datas/typesDatas';
-import Pokemon from './components/Pokemon';
+import Pokemon from '@components/Pokemon';
 import { ClipLoader } from 'react-spinners';
-import ToggleLightMode from './components/ToggleLightMode';
-import { usePokemonsData } from './contexts/PokemonsDataContext';
-import { useLoading } from './contexts/LoadingContext';
-import { usePokemonSelected } from './contexts/PokemonSelectedContext';
-import PokemonPopup from './components/PokemonPopup';
+import ToggleLightMode from '@components/ToggleLightMode';
+import { usePokemonsData } from '@contexts/PokemonsDataContext';
+import { useLoading } from '@contexts/LoadingContext';
+import { usePokemonSelected } from '@contexts/PokemonSelectedContext';
+import PokemonPopup from '@components/PokemonPopup';
 import { AnimatePresence } from 'framer-motion';
-import Pokemon_logo from'./assets/logo/Pokemon_logo.png';
+import Pokemon_logo from'@assets/logo/Pokemon_logo.png';
 import { PokemonData } from '@custom-types/pokemonTypes';
+import Intro from '@components/Intro';
+import GitHubButton from '@components/GitHubButton';
+import UpButton from '@components/UpButton';
 
 // TYPAGE
 
@@ -116,12 +119,13 @@ function App() {
 
   return (
     <>
+      <GitHubButton />
       <ToggleLightMode />
-      <header className='flex justify-center mt-10 mb-20'>
-        <h1 className='sr-only'>Mini wiki Pokémon</h1>
+      <header className='flex flex-col items-center mt-10'>
+        <Intro />
         <img className='w-80' src={Pokemon_logo} alt="Mini wiki Pokémon" />
       </header>
-      <div className="flex justify-center flex-wrap gap-6 sm:gap-10 mt-10">
+      <div className="flex justify-center flex-wrap gap-6 sm:gap-10 mt-15">
         {
           pokemonsData.map((pokemon) => 
             typesDatas.map((type) => {
@@ -141,7 +145,7 @@ function App() {
           />
         )}
       </AnimatePresence>
-
+      <UpButton />
     </>
   )
 }

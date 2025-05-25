@@ -1,6 +1,6 @@
-import { useTheme } from '../contexts/ThemeContext'
+import { useTheme } from '@contexts/ThemeContext'
 
-export default function UseLightMode() {
+export default function useLightMode() {
   const {setIsLight} = useTheme();
 
   const bodyClass = document.body.classList;
@@ -17,7 +17,7 @@ export default function UseLightMode() {
     }
   };
 
-  return [toggleLightMode]
+  return toggleLightMode;
 
   // return (
   //   <button onClick={toggleLightMode} className="p-2 bg-accent text-white rounded">

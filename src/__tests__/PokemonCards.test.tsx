@@ -2,7 +2,6 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { PokemonsDataContext } from '@contexts/PokemonsDataContext';
 import Pokemon from '@components/Pokemon';
 
-// Mock minimal d’un Pokémon
 const mockPokemon = {
   id: 25,
   name: 'pikachu',
@@ -27,7 +26,7 @@ const mockType = {
 };
 
 describe('PokemonCard', () => {
-  it('affiche correctement les informations du Pokémon', async () => {
+  it('Affiche correctement les infos du pokémon', async () => {
     render(
       <PokemonsDataContext.Provider
         value={{

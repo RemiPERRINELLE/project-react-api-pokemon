@@ -11,65 +11,41 @@ body {
   transition: background-color 0.5s, color 0.5s;
 }
 
-/* .pokemonCard{
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-  border: 0.1px solid #fff;
-  box-shadow: 0 0 .1rem #fff,
-  0 0 .1rem #fff,
-  0 0 1rem var(--color-pokemonCard),
-  0 0 0.4rem var(--color-pokemonCard),
-  0 0 1.4rem var(--color-pokemonCard),
-  inset 0 0 0.7rem var(--color-pokemonCard); 
-  -webkit-box-shadow: 0 0 .1rem #fff,
-  0 0 .1rem #fff,
-  0 0 1rem var(--color-pokemonCard),
-  0 0 0.4rem var(--color-pokemonCard),
-  0 0 1.4rem var(--color-pokemonCard),
-  inset 0 0 0.7rem var(--color-pokemonCard);
-  -moz-box-shadow: 0 0 .1rem #fff,
-  0 0 .1rem #fff,
-  0 0 1rem var(--color-pokemonCard),
-  0 0 0.4rem var(--color-pokemonCard),
-  0 0 1.4rem var(--color-pokemonCard),
-  inset 0 0 0.7rem var(--color-pokemonCard); 
+.intro-chevrons-animate {
+	animation: pulseIntroChevrons 4s 0s linear infinite;
+}
+@keyframes pulseIntroChevrons {
+	from{
+		transform: scale(1);
+    stroke: #f9fafb;
+	}
+	12.5%{
+		transform: scale(1.2);
+    stroke: oklch(87.9% 0.169 91.605); /* Tailwind amber-300 */
+	}
+	25%{
+		transform: scale(1);
+    stroke: #f9fafb;
+	}
 }
 
-
-.pokemonCard::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-pokemonCard),
-    transparent
-  );
-  background-size: 400%;
-  z-index: -1;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  animation: snake-border 3s linear infinite;
+.intro-chevrons-animate-light {
+	animation: pulseIntroChevronsLight 4s 0s linear infinite;
 }
-
-.pokemonCard:hover::before {
-  opacity: 1;
+@keyframes pulseIntroChevronsLight {
+	from{
+		transform: scale(1);
+    stroke: #1e1d1d;
+	}
+	12.5%{
+		transform: scale(1.2);
+    stroke: oklch(68.5% 0.169 237.323); /* Tailwind sky-500 */
+	}
+	25%{
+		transform: scale(1);
+    stroke: #1e1d1d;
+	}
 }
-
-@keyframes snake-border {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
-} */
 
 .pokemonCard {
   max-width: 120px;

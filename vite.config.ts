@@ -15,6 +15,8 @@ export default defineConfig({
       '@custom-types': path.resolve(__dirname, 'src/types'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
     },
   },
   test: {

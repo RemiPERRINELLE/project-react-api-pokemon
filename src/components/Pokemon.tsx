@@ -19,7 +19,7 @@ export default function Pokemon({pokemon, type, onClick}: PokemonProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: pokemon.id * 0.025 }}
-            className={`appearance-none border-none w-45/100 sm:w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 text-sm sm:text-base ${isLight ? 'bg-light-pokemonCard' : ''}`}
+            className={`appearance-none border-none w-45/100 sm:w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 text-sm sm:text-base ${isLight && 'bg-light-pokemonCard'}`}
             style={cssVars({ '--color-pokemonCard': type.color })} 
             onClick={onClick}
         >

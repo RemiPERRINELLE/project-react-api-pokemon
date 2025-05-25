@@ -1,11 +1,11 @@
-import UseLightMode from "../hooks/useLightMode";
-import { useTheme } from "../contexts/ThemeContext"
+import useLightMode from "@hooks/useLightMode";
+import { useTheme } from "@contexts/ThemeContext"
 import { Sun, Moon } from 'lucide-react';
 
 
 export default function ToggleLightMode() {
   const { isLight } = useTheme();
-  const [ toggleLightMode ] = UseLightMode();
+  const toggleLightMode = useLightMode();
 
   return (
     // <button onClick={toggleLightMode} className="p-2 bg-accent text-white rounded">

@@ -5,6 +5,8 @@
       "@custom-types/*": ["types/*"],
       "@components/*" : ["components/*"],
       "@contexts/*" : ["contexts/*"],
+      "@hooks/*" : ["hooks/*"],
+      "@assets/*" : ["assets/*"],
     },
     "types": ["vitest"],
     "target": "ESNext",
