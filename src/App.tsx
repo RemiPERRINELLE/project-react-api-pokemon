@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import './App.css'
 import axios from 'axios';
-import { typesDatas } from './datas/typesDatas';
-import Pokemon from '@components/Pokemon';
+
 import { ClipLoader } from 'react-spinners';
 import ToggleLightMode from '@components/ToggleLightMode';
 import { usePokemonsData } from '@contexts/PokemonsDataContext';
@@ -15,6 +14,8 @@ import { PokemonData } from '@custom-types/pokemonTypes';
 import Intro from '@components/Intro';
 import GitHubButton from '@components/GitHubButton';
 import UpButton from '@components/UpButton';
+import PokemonList from '@components/PokemonList';
+import MenuSortingFilter from '@components/MenuSortingFilter';
 
 // TYPAGE
 
@@ -36,7 +37,7 @@ interface PokemonSpeciesData {
 
 function App() {
   const { isLoading, setIsLoading } = useLoading();
-  const { pokemonsData, setPokemonsData, errorPokemonsData, setErrorPokemonsData } = usePokemonsData();
+  const { setPokemonsData, errorPokemonsData, setErrorPokemonsData } = usePokemonsData();
   const { pokemonSelected, setPokemonSelected } = usePokemonSelected();
 
   useEffect(() => {
@@ -116,7 +117,6 @@ function App() {
   if(errorPokemonsData) return <p>{errorPokemonsData}</p>
 
 
-
   return (
     <>
       <GitHubButton />
@@ -125,17 +125,8 @@ function App() {
         <Intro />
         <img className='w-80' src={Pokemon_logo} alt="Mini wiki Pokémon" />
       </header>
-      <div className="flex justify-center flex-wrap gap-6 sm:gap-10 mt-15">
-        {
-          pokemonsData.map((pokemon) => 
-            typesDatas.map((type) => {
-              if((pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
-                return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} onClick={() => setPokemonSelected({pokemon, type})} />
-              } 
-            })
-          )
-        }
-      </div>
+      <MenuSortingFilter />
+      <PokemonList />
       <AnimatePresence>
         {pokemonSelected && (
           <PokemonPopup

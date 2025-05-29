@@ -61,19 +61,19 @@ export default function Intro () {
                         >
                             <p>Stack technique :</p>
                             <ul className='list-none flex flex-wrap gap-2 justify-center mt-3 mb-5'>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">React.js</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Typescript</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Vite</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Tailwind CSS</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">DaisyUI</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">API <a href="https://pokeapi.co/" target="_blank" className='text-inherit underline hover:text-amber-300'>Pokeapi.co</a></li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Axios</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Lucide-react</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Framer-motion</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">React Testing Library</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Vitest</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500">MSW</li>
-                                <li className="mr-5 before:content-['•'] before:mr-2 before:text-sky-500"><a href="https://github.com/RemiPERRINELLE/project-react-api-pokemon/" target="_blank" className='text-inherit underline hover:text-amber-300'>GitHub</a></li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">React.js</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Typescript</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Vite</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Tailwind CSS</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">DaisyUI</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">API <a href="https://pokeapi.co/" target="_blank" className='text-inherit underline hover:text-amber-300'>Pokeapi.co</a></li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Axios</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Lucide-react</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Framer-motion</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">React Testing Library</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">Vitest</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500">MSW</li>
+                                <li className="ml-2 mr-2 before:content-['•'] before:mr-2 before:text-sky-500"><a href="https://github.com/RemiPERRINELLE/project-react-api-pokemon/" target="_blank" className='text-inherit underline hover:text-amber-300'>GitHub</a></li>
                             </ul>
                         </motion.div>
                         <motion.div
@@ -90,23 +90,23 @@ export default function Intro () {
                             <h2 className='text-xl mt-10 mb-5 underline'>Vie du projet :</h2>
                             <h3 className='text-lg mb-2'>V1</h3>
                             <ul className='list-none mb-8'>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Initialisation du projet sur React en Javascript avec Vite + TailwindCSS + DaisyUI</li>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Mise en production sur mon site internet (serveur OVH).</li>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Correction d'un bug sur le thème "Light" non existant en préproduction.</li>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Test du lien par des connaissances et prise en compte leurs retours : passer à 2 cartes par ligne et non 1 sur mobile + mettre les noms des pokémons en français (j'avais laissé en anglais car il y avait moins d'appels d'API).</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Initialisation du projet sur React en Javascript avec Vite + TailwindCSS + DaisyUI</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Mise en production sur mon site internet (serveur OVH).</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Correction d'un bug sur le thème "Light" non existant en préproduction.</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Test du lien par des connaissances et prise en compte leurs retours : passer à 2 cartes par ligne et non 1 sur mobile + mettre les noms des pokémons en français (j'avais laissé en anglais car il y avait moins d'appels d'API).</li>
                             </ul>
                             <h3 className='text-lg mb-2'>V2</h3>
                             <ul className='list-none mb-8'>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Migration du projet sur Typescript pour apprendre.</li>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Ajout de tests pour éviter des erreurs lors de la mise en production, ne pas casser le projet existant et également pour apprendre la mise en place de tests.</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Migration du projet sur Typescript pour apprendre.</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Ajout de tests pour éviter des erreurs lors de la mise en production, ne pas casser le projet existant et également pour apprendre la mise en place de tests.</li>
                             </ul>
                             <h3 className='text-lg mb-2'>V3 actuelle</h3>
                             <ul className='list-none mb-8'>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Évolution du projet (toujours avec des tests avant la mise en production) : dropdown en introduction de ce pavé d'explications + lien github en haut à gauche de la page + flèche en bas à droite pour remonter en haut sans scroller.</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Évolution du projet (toujours avec des tests avant la mise en production) : dropdown en introduction de ce pavé d'explications + lien github en haut à gauche de la page + flèche en bas à droite pour remonter en haut sans scroller.</li>
                             </ul>
                             <h3 className='text-lg mb-2'>V4 à venir</h3>
                             <ul className='list-none mb-8'>
-                                <li className="mb-2 mr-5 before:content-['•'] before:mr-2 before:text-sky-500">Il y a probablement d'autres fonctionnalités qui vont arriver : filtres + système de recherche.</li>
+                                <li className="mb-2 before:content-['•'] before:mr-2 before:text-sky-500">Il y a probablement d'autres fonctionnalités qui vont arriver : tris + filtres + système de recherche.</li>
                             </ul>
                         </motion.div>
                     </motion.div>

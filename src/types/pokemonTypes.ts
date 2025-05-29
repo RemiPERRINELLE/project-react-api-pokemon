@@ -20,6 +20,7 @@ export interface PokemonType {
   name: string;
   img: string;
   color: string;
+  order: number;
 }
 
 export interface PokemonSelected {

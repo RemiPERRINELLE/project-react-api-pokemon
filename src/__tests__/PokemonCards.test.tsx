@@ -23,6 +23,7 @@ const mockType = {
   name: 'electric',
   img: 'url-to-type-img',
   color: '#F8D030',
+  order: 5,
 };
 
 describe('PokemonCard', () => {

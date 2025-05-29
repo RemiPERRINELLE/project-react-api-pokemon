@@ -1,4 +1,4 @@
-Ce projet personnel est mon premier en React.js que j'ai totalement conçu par moi-même (avec l'aide de YouTube, Stack Overflow et ChatGPT) sans suivre un exercice provenant d'un cours ou d'une vidéo.
+Ce projet personnel est mon premier en React.js que j'ai totalement conçu par moi-même (avec l'aide de YouTube, Stack Overflow et ChatGPT ponctuellement) sans suivre un exercice provenant d'un cours ou d'une vidéo.
 
 Je l'ai initialement fait en Javascript puis je l'ai migré en TypeScript avec l'ajout d'un environnement de tests.
 
@@ -39,4 +39,4 @@ V3 actuelle
 - Évolution du projet (toujours avec des tests avant la mise en production) : dropdown en introduction de ce pavé d'explications + lien github en haut à gauche de la page + flèche en bas à droite pour remonter en haut sans scroller.
 
 V4 à venir
-- Il y a probablement d'autres fonctionnalités qui vont arriver : filtres + système de recherche.
+- Il y a probablement d'autres fonctionnalités qui vont arriver : tris + filtres + système de recherche.

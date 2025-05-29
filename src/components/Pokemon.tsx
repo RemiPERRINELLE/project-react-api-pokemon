@@ -7,18 +7,27 @@ interface PokemonProps {
     pokemon: PokemonData;
     type: PokemonType;
     onClick: () => void;
+    index?: number;
 }
 
-export default function Pokemon({pokemon, type, onClick}: PokemonProps) {
+export default function Pokemon({pokemon, type, onClick, index}: PokemonProps) {
     const { isLight } = useTheme();
     const name = capitalize(pokemon.frenchName);
 
 
     return(
         <motion.button 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: pokemon.id * 0.025 }}
+            custom={index}
+            initial="hidden"
+            animate="visible"
+            // transition={{ duration: 0.5, delay: pokemon.id * 0.025 }}
+            variants={{
+                hidden: { opacity: 0 },
+                visible: (i) => ({
+                    opacity: 1,
+                    transition: { delay: i * 0.025, duration: 0.5 }
+                })
+            }}
             className={`appearance-none border-none w-45/100 sm:w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 text-sm sm:text-base ${isLight && 'bg-light-pokemonCard'}`}
             style={cssVars({ '--color-pokemonCard': type.color })} 
             onClick={onClick}
