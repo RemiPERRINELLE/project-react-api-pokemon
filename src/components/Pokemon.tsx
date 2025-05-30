@@ -25,7 +25,7 @@ export default function Pokemon({pokemon, type, onClick, index}: PokemonProps) {
                 hidden: { opacity: 0 },
                 visible: (i) => ({
                     opacity: 1,
-                    transition: { delay: i * 0.025, duration: 0.5 }
+                    transition: { delay: i * 0.0125, duration: 0.5 }
                 })
             }}
             className={`appearance-none border-none w-45/100 sm:w-30 flex flex-col justify-center items-center pokemonCard p-4 gap-2 text-sm sm:text-base ${isLight && 'bg-light-pokemonCard'}`}

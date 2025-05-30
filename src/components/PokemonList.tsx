@@ -11,7 +11,6 @@ export default function PokemonList() {
     const { isSorted } = useSorting();
     const { isFiltered } = useFilter();
 
-    // À placer avant le return
     const pokemonsByType = typesDatas.flatMap(type =>
         pokemonsData.filter(
             pokemon => pokemon.types[0].type.name === type.name && pokemon.sprites.front_default
@@ -24,16 +23,16 @@ export default function PokemonList() {
             {   
                 // no filter and no sorting
                 !isSorted &&
-                !isFiltered &&
                 pokemonsData.map((pokemon, index) => 
                     typesDatas.map((type) => {
-                        if((pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
+                        if(!isFiltered && (pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
                             return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={index} onClick={() => setPokemonSelected({pokemon, type})} />
-                        } 
+                        } else if(isFiltered && (type.order === isFiltered) && (typesDatas.find(t => t.name === pokemon.types[0].type.name)?.order === isFiltered)) {
+                           return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={0} onClick={() => setPokemonSelected({pokemon, type})} />
+                        }
                     })
                 )
             }
-
 
             {
                 // sorting by name A-Z
@@ -42,9 +41,11 @@ export default function PokemonList() {
                     .sort((a, b) => a.frenchName.localeCompare(b.frenchName))
                     .map((pokemon, index) => 
                         typesDatas.map((type) => {
-                            if((pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
+                            if(!isFiltered && (pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
                                 return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={index} onClick={() => setPokemonSelected({pokemon, type})} />
-                            } 
+                            } else if(isFiltered && (type.order === isFiltered) && (typesDatas.find(t => t.name === pokemon.types[0].type.name)?.order === isFiltered)) {
+                            return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={0} onClick={() => setPokemonSelected({pokemon, type})} />
+                            }
                         })
                     )
             }
@@ -56,9 +57,11 @@ export default function PokemonList() {
                     .sort((a, b) => b.frenchName.localeCompare(a.frenchName))
                     .map((pokemon, index) => 
                         typesDatas.map((type) => {
-                            if((pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
+                            if(!isFiltered && (pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
                                 return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={index} onClick={() => setPokemonSelected({pokemon, type})} />
-                            } 
+                            } else if(isFiltered && (type.order === isFiltered) && (typesDatas.find(t => t.name === pokemon.types[0].type.name)?.order === isFiltered)) {
+                            return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={0} onClick={() => setPokemonSelected({pokemon, type})} />
+                            }
                         })
                     )
             }
@@ -66,9 +69,13 @@ export default function PokemonList() {
             {
                 // sorting by type
                 isSorted === 3 && 
-                pokemonsByType.map(({ pokemon, type }, index) => (
-                    <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={index} onClick={() => setPokemonSelected({pokemon, type})} />
-                ))
+                pokemonsByType.map(({ pokemon, type }, index) => {
+                    if(!isFiltered && (pokemon.types[0].type.name === type.name) && pokemon.sprites.front_default){
+                        return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={index} onClick={() => setPokemonSelected({pokemon, type})} />
+                    } else if(isFiltered && (type.order === isFiltered) && (typesDatas.find(t => t.name === pokemon.types[0].type.name)?.order === isFiltered)) {
+                        return <Pokemon key={pokemon.id} pokemon={pokemon} type={type} index={0} onClick={() => setPokemonSelected({pokemon, type})} />
+                    }
+                })
             }
 
         </div>
