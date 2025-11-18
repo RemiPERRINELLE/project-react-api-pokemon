@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './App.css'
 import axios from 'axios';
-
+import pLimit from "p-limit";
 import { ClipLoader } from 'react-spinners';
 import ToggleLightMode from '@components/ToggleLightMode';
 import { usePokemonsData } from '@contexts/PokemonsDataContext';
@@ -15,7 +15,7 @@ import Intro from '@components/Intro';
 import GitHubButton from '@components/GitHubButton';
 import UpButton from '@components/UpButton';
 import PokemonList from '@components/PokemonList';
-import MenuSortingFilter from '@components/MenuSortingFilter';
+import MenuSortingFilter from '@components/Menu';
 
 // TYPAGE
 
@@ -35,6 +35,18 @@ interface PokemonSpeciesData {
 }
 
 
+async function fetchWithRetry<T>(url: string, retries = 2): Promise<T> {
+  try {
+    const res = await axios.get<T>(url);
+    return res.data;
+  } catch (err) {
+    if (retries === 0) throw err;
+    await new Promise(resolve => setTimeout(resolve, 200));
+    return fetchWithRetry<T>(url, retries - 1);
+  }
+}
+
+
 function App() {
   const { isLoading, setIsLoading } = useLoading();
   const { setPokemonsData, errorPokemonsData, setErrorPokemonsData } = usePokemonsData();
@@ -44,23 +56,30 @@ function App() {
     (async () => {
       try {
         const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386&offset=0');
+
+        const limit = pLimit(10);
         
         const details = await Promise.all(
-          data.results.map(async (poke: PokemonItem) => {
-            const pokemonData = await axios.get<PokemonData>(poke.url).then(res => res.data);
-            const speciesData = await axios.get<PokemonSpeciesData>(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`)
-              .then(res => res.data);
+          data.results.map((poke: PokemonItem) =>
+            limit(async () => {
+              // const pokemonData = await axios.get<PokemonData>(poke.url).then(res => res.data);
+              // const speciesData = await axios.get<PokemonSpeciesData>(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`)
+              //   .then(res => res.data);
 
-            // Cherche le nom en français
-            const frenchName = speciesData.names.find(
-              name => name.language.name === 'fr'
-            )?.name || pokemonData.name;
+              const pokemonData = await fetchWithRetry<PokemonData>(poke.url);
+              const speciesData = await fetchWithRetry<PokemonSpeciesData>(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`);
 
-            return {
-              ...pokemonData,
-              frenchName,
-            };
-          })
+              // Cherche le nom en français
+              const frenchName = speciesData && speciesData.names &&speciesData.names.find(
+                name => name.language.name === 'fr'
+              )?.name || pokemonData.name;
+
+              return {
+                ...pokemonData,
+                frenchName,
+              };
+            }
+          ))
         );
         setPokemonsData(details);
       } catch (error) {
@@ -69,8 +88,12 @@ function App() {
       } finally {
         setIsLoading(false);
       }
+      
     })();
   }, []);
+
+
+  
   
   // useEffect(() => {
   //   (async () => {

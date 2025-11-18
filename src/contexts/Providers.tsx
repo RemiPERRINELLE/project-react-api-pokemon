@@ -6,7 +6,7 @@ import { ProviderProps } from '@custom-types/contextTypes';
 import IntroProvider from "./IntroContext";
 import FilterProvider from "./FilterContext";
 import SortingContext from "./SortingContext";
-
+import SearchProvider from "./SearchContext";
 
 export default function AppProviders({children}: ProviderProps) {
     return(
@@ -14,13 +14,15 @@ export default function AppProviders({children}: ProviderProps) {
             <PokemonsDataProvider>
                 <SortingContext>
                     <FilterProvider>
-                        <PokemonSelectedProvider>
-                            <ThemeProvider>
-                                <IntroProvider>
-                                    {children}
-                                </IntroProvider>
-                            </ThemeProvider>
-                        </PokemonSelectedProvider>
+                        <SearchProvider>
+                            <PokemonSelectedProvider>
+                                <ThemeProvider>
+                                    <IntroProvider>
+                                        {children}
+                                    </IntroProvider>
+                                </ThemeProvider>
+                            </PokemonSelectedProvider>
+                        </SearchProvider>
                     </FilterProvider>
                 </SortingContext>
             </PokemonsDataProvider>
